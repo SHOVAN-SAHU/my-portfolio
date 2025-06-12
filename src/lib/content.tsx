@@ -54,7 +54,8 @@ export const commands = [
 ];
 
 export const content = {
-  about: `# About Me
+  about: `# About Me                                              
+  [📄 View My Resume](Shovan_Resume.pdf)
 
 Hey there! I'm Shovan Sahu a passionate MERN Stack Developer with a deep love for backend development. 
 Currently working as an intern at Oggangs since January 31, 2025, where I'm building 
@@ -131,45 +132,18 @@ Focusing on building scalable server-side applications and optimizing database p
 
   projects: `# Featured Projects
 
-## 🎯 Social Media Backend API
-**Tech Stack:** Node.js, Express.js, MongoDB, Socket.io
-**GitHub:** github.com/username/social-api
+## 🎯 Socila Loop (Social Media platform)
+**Tech Stack:** 
+  Backend - Node.js, Express.js, MongoDB, Socket.io, Multer, JWT
+  Frontend - React.js, Tailwind CSS, Redux
+**Project Link:** https://socialloop.onrender.com
+**GitHub:** https://github.com/SHOVAN-SAHU/SocialLoop-v-1.0.0
 
 - Built complete RESTful API for social media platform
 - Implemented JWT authentication & authorization
 - Real-time messaging with Socket.io
 - Performance optimization for 10k+ concurrent users
-- Comprehensive API documentation
-
-## 🛒 E-commerce Backend System
-**Tech Stack:** Node.js, Express.js, PostgreSQL, Redis
-**GitHub:** github.com/username/ecommerce-api
-
-- Developed scalable e-commerce API
-- Payment gateway integration (Stripe)
-- Order management system
-- Admin dashboard APIs
-- Inventory management system
-
-## 📊 Analytics Dashboard API
-**Tech Stack:** Node.js, Express.js, MongoDB, WebSocket
-**GitHub:** github.com/username/analytics-api
-
-- Real-time data processing
-- Complex aggregation pipelines
-- WebSocket integration for live updates
-- Performance monitoring
-- Data visualization endpoints
-
-## 🔐 Authentication Microservice
-**Tech Stack:** Node.js, Express.js, MongoDB, Redis
-**GitHub:** github.com/username/auth-service
-
-- JWT-based authentication system
-- Role-based access control
-- Rate limiting and security middleware
-- Password encryption and validation
-- Session management with Redis`,
+- Comprehensive API documentation`,
 
   contact: `# Let's Connect!
 
@@ -180,10 +154,10 @@ Feel free to reach out if you'd like to collaborate or just chat about tech!
 shovansahu000@gmail.com
 
 ## 🔗 Social Links
-- **GitHub:** github.com/SHOVAN-SAHU
-- **LinkedIn:** linkedin.com/in/username  
+- **GitHub:** https://github.com/SHOVAN-SAHU
+- **LinkedIn:** https://www.linkedin.com/in/shovan-sahu-a5967b242 
 - **Portfolio:** portfolio-website.com
-- **Resume:** Download my latest resume
+- **Resume:** [📄 View My Resume](Shovan_Resume.pdf)
 
 ## 💼 Open to:
 - Backend Developer positions

@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Backend Developer | Terminal Portfolio',
+  title: "Shovan's Portfolio",
   description: 'Full-stack developer specializing in backend development with Node.js, Express.js, and MongoDB.',
   keywords: ['backend developer', 'nodejs', 'express', 'mongodb', 'mern stack'],
   authors: [{ name: 'Your Name' }],

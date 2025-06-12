@@ -51,13 +51,13 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
             {/* Center - Terminal title (hidden on mobile) */}
             <div className="hidden sm:flex text-terminal-green font-bold items-center space-x-2">
               <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">portfolio@backend-dev:~$</span>
+              <span className="text-sm sm:text-base">portfolio@shovan --backend-dev:~$</span>
             </div>
             
             {/* Mobile terminal title */}
             <div className="flex sm:hidden text-terminal-green font-bold items-center space-x-1">
               <Terminal className="w-4 h-4" />
-              <span className="text-xs">portfolio</span>
+              <span className="text-xs">portfolio@shovan</span>
             </div>
             
             {/* Right side - System stats */}
@@ -112,21 +112,24 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
               {/* Social links */}
               <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto">
                 <a 
-                  href="#" 
+                  href="https://github.com/SHOVAN-SAHU"
+                  target='_blank'
                   className="flex items-center space-x-1 sm:space-x-2 text-gray-400 hover:text-terminal-green transition-colors whitespace-nowrap"
                 >
                   <Github className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/in/shovan-sahu-a5967b242/"
+                  target='_blank'
                   className="flex items-center space-x-1 sm:space-x-2 text-gray-400 hover:text-blue-400 transition-colors whitespace-nowrap"
                 >
                   <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="text-xs sm:text-sm">LinkedIn</span>
                 </a>
                 <a 
-                  href="#" 
+                  href="mailto:shovansahu000@gmail.com"
+                  target='_blank'
                   className="flex items-center space-x-1 sm:space-x-2 text-gray-400 hover:text-purple-400 transition-colors whitespace-nowrap"
                 >
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />

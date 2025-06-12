@@ -40,6 +40,79 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     return () => clearInterval(timer);
   }, [content, delay, lines.length, isMobile]);
 
+  // Function to convert URLs to clickable links
+  const renderWithLinks = (text: string) => {
+    const elements: (string | JSX.Element)[] = [];
+    const mdLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+    let lastIndex = 0;
+    let match;
+
+    // First handle markdown-style links
+    while ((match = mdLinkRegex.exec(text)) !== null) {
+      const [fullMatch, label, url] = match;
+      const index = match.index;
+
+      // Push text before match, including raw URLs if any
+      const preText = text.substring(lastIndex, index);
+      preText.split(urlRegex).forEach((part, i) => {
+        if (urlRegex.test(part)) {
+          elements.push(
+            <a
+              key={`url-${index}-${i}`}
+              href={part}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-terminal-green hover:text-terminal-amber underline hover:no-underline   transition-colors duration-200"
+            >
+              {part}
+            </a>
+          );
+        } else {
+          elements.push(part);
+        }
+      });
+
+      // Push markdown link
+      elements.push(
+        <a
+          key={`md-${index}`}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-terminal-green hover:text-terminal-amber underline hover:no-underline   transition-colors duration-200"
+        >
+          {label}
+        </a>
+      );
+
+      lastIndex = index + fullMatch.length;
+    }
+
+    // Push remaining text (may contain raw URLs)
+    const remaining = text.substring(lastIndex);
+    remaining.split(urlRegex).forEach((part, i) => {
+      if (urlRegex.test(part)) {
+        elements.push(
+          <a
+            key={`final-url-${i}`}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-terminal-green hover:text-terminal-amber underline hover:no-underline   transition-colors duration-200"
+          >
+            {part}
+          </a>
+        );
+      } else {
+        elements.push(part);
+      }
+    });
+
+    return elements;
+  };
+
   const formatLine = (line: string, index: number) => {
     if (index >= visibleLines) return null;
     
@@ -57,7 +130,7 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     if (line.startsWith('## ')) {
       return (
         <div key={key} className="text-blue-400 text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 mt-4 sm:mt-6 animate-slide-up break-words">
-          {line.substring(3)}
+          {renderWithLinks(line.substring(3))}
         </div>
       );
     }
@@ -65,7 +138,7 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     if (line.startsWith('### ')) {
       return (
         <div key={key} className="text-purple-400 text-sm sm:text-base lg:text-lg font-semibold mb-2 mt-3 sm:mt-4 animate-slide-up break-words">
-          {line.substring(4)}
+          {renderWithLinks(line.substring(4))}
         </div>
       );
     }
@@ -73,7 +146,7 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     if (line.startsWith('**') && line.endsWith('**') && line.length > 4) {
       return (
         <div key={key} className="text-yellow-400 font-bold mb-2 animate-fade-in text-sm sm:text-base break-words">
-          {line.substring(2, line.length - 2)}
+          {renderWithLinks(line.substring(2, line.length - 2))}
         </div>
       );
     }
@@ -82,7 +155,7 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
       return (
         <div key={key} className="text-gray-300 ml-2 sm:ml-4 mb-1 hover:text-terminal-green transition-colors animate-slide-up text-sm sm:text-base">
           <span className="text-terminal-green mr-2">➤</span>
-          <span className="break-words">{line.substring(2)}</span>
+          <span className="break-words">{renderWithLinks(line.substring(2))}</span>
         </div>
       );
     }
@@ -90,23 +163,23 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     if (line.startsWith('📅 ') || line.startsWith('📧 ') || line.startsWith('🔗 ') || line.startsWith('📱 ') || line.startsWith('🌍 ') || line.startsWith('💼 ')) {
       return (
         <div key={key} className="text-cyan-400 mb-2 animate-fade-in text-sm sm:text-base break-words">
-          {line}
+          {renderWithLinks(line)}
         </div>
       );
     }
     
-    // Handle GitHub links and other technical content
-    if (line.includes('github.com/') || line.includes('**Tech Stack:**') || line.includes('**GitHub:**')) {
+    // Handle lines with links or technical content
+    if (line.includes('http') || line.includes('**Tech Stack:**') || line.includes('**GitHub:**')) {
       return (
         <div key={key} className="text-gray-300 mb-2 leading-relaxed animate-fade-in text-sm sm:text-base break-all sm:break-words">
-          {line}
+          {renderWithLinks(line)}
         </div>
       );
     }
     
     return (
       <div key={key} className="text-gray-300 mb-2 leading-relaxed animate-fade-in text-sm sm:text-base break-words">
-        {line}
+        {renderWithLinks(line)}
       </div>
     );
   };
