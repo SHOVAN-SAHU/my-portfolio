@@ -1,11 +1,11 @@
 import AnimatedContent from '@/components/AnimatedContent';
 import { content } from '@/lib/content';
 
-export default function Home() {
+export default function Skills() {
   return (
     <AnimatedContent 
-      content={content.about} 
-      delay={150}
+      content={content.skills} 
+      delay={80}
     />
   );
 }

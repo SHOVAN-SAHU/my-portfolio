@@ -1,26 +1,150 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-terminal-bg text-terminal-green antialiased;
+  /* Prevent horizontal scrolling on mobile */
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-terminal-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-terminal-green rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-green-400;
+}
+
+/* Horizontal scrollbar for mobile navigation */
+::-webkit-scrollbar:horizontal {
+  height: 4px;
+}
+
+/* Text selection */
+::selection {
+  @apply bg-terminal-green text-terminal-bg;
+}
+
+/* Focus styles */
+*:focus {
+  @apply outline-none ring-2 ring-terminal-green ring-opacity-50;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  /* Reduce animation intensity on mobile for better performance */
+  .animate-ping {
+    animation-duration: 3s;
+  }
+  
+  /* Optimize font rendering on mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Adjust animations for tablet */
+  .animate-terminal-blink {
+    animation-duration: 1.2s;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  /* Full animation effects on desktop */
+  .animate-terminal-blink {
+    animation-duration: 1s;
+  }
+  
+  /* Enhanced hover effects on desktop */
+  .hover\:scale-105:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Utility classes for responsive design */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-terminal-green {
+  scrollbar-color: #00ff41 transparent;
+}
+
+.scrollbar-track-terminal-dark {
+  scrollbar-color: #00ff41 #0a0e16;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --terminal-green: #00ff00;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Safe area support for mobile devices with notches */
+@supports (padding: max(0px)) {
+  .safe-area-padding {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Custom utility classes */
+.text-shadow-terminal {
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.glow-terminal {
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
 }
