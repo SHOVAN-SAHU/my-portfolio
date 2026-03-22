@@ -120,7 +120,7 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
                   <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/shovan-sahu-a5967b242/"
+                  href="https://www.linkedin.com/in/shovan-sahu/"
                   target='_blank'
                   className="flex items-center space-x-1 sm:space-x-2 text-gray-400 hover:text-blue-400 transition-colors whitespace-nowrap"
                 >
@@ -148,7 +148,7 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
               <span className="text-gray-400">|</span>
               <span className="text-blue-400 whitespace-nowrap">Backend Dev Mode</span>
               <span className="text-gray-400">|</span>
-              <span className="text-purple-400 whitespace-nowrap">Oggangs Intern</span>
+              <span className="text-purple-400 whitespace-nowrap">Express.js ● Django ● FastApi</span>
             </div>
             <div className="text-gray-400 text-right sm:text-left">
               Last updated: {new Date().toLocaleDateString()}

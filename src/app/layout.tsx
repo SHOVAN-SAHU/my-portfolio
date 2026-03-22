@@ -10,9 +10,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Shovan's Portfolio",
-  description: 'Full-stack developer specializing in backend development with Node.js, Express.js, and MongoDB.',
+  description: 'Full-stack developer specializing in backend development with Node.js, Express.js, Django, FastApi and MongoDB.',
   keywords: ['backend developer', 'nodejs', 'express', 'mongodb', 'mern stack'],
-  authors: [{ name: 'Your Name' }],
+  authors: [{ name: 'Shovan Sahu' }],
   viewport: 'width=device-width, initial-scale=1',
   themeColor: '#00ff41',
 };
