@@ -275,37 +275,40 @@ export default function TerminalInput() {
           </span>
         </div>
 
-        {/* Blinking cursor — visible when idle, hidden while typing (native caret takes over) */}
-        <span
-          className={`
-            inline-block w-[2px] h-[14px] sm:h-[16px] bg-terminal-green flex-shrink-0 mr-1
-            ${isFocused ? 'opacity-0' : 'animate-terminal-blink'}
-          `}
-        />
+        {/* Input Wrapper */}
+        <div className="relative flex-1 min-w-0 flex items-center">
+          {/* Custom text & cursor when idle (unfocused) */}
+          {!isFocused && (
+            <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none whitespace-pre overflow-hidden">
+              <span className={input ? "text-gray-100 text-xs sm:text-sm font-mono" : "text-gray-500 text-xs font-mono"}>
+                {input || 'type a command… (try: help)'}
+              </span>
+              <span className="inline-block w-[2px] h-[12px] sm:h-[14px] bg-terminal-green animate-terminal-blink ml-[1px] opacity-70 flex-shrink-0" />
+            </div>
+          )}
 
-        {/* Input field */}
-        <input
-          ref={inputRef}
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={onKey}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck={false}
-          placeholder={isFocused ? '' : 'type a command… (try: help)'}
-          className="
-            flex-1 min-w-0 bg-transparent border-none outline-none ring-0
-            text-gray-100 text-xs sm:text-sm font-mono
-            placeholder:text-gray-500 placeholder:text-xs
-            caret-terminal-green
-          "
-          aria-label="Terminal command input"
-          id="terminal-command-input"
-        />
+          {/* Actual Input field */}
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={onKey}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            className={`
+              w-full bg-transparent border-none outline-none focus:outline-none ring-0 focus:ring-0
+              text-xs sm:text-sm font-mono caret-terminal-green relative z-10
+              ${isFocused ? 'text-gray-100' : 'text-transparent'}
+            `}
+            aria-label="Terminal command input"
+            id="terminal-command-input"
+          />
+        </div>
       </div>
     </div>
   );
