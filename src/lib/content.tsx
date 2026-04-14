@@ -68,12 +68,12 @@ real-world complexity at scale.
 - Distributed Systems & Database Optimization
 
 ## Current Focus
-Building InsightsHub — a microservices-based RAG platform with document ingestion,
-vector embeddings, and LLM inference, fully Dockerized for horizontal scaling.`,
+Building InsightsHub — a microservices-based RAG platform with document ingestion, vector embeddings, and LLM inference, fully Dockerized for horizontal scaling.
+Focusing on system design and scalable backend systems.`,
 
   skills: `# Technical Arsenal
 
-## Backend (My Passion) 🚀
+## Backend 🚀
 - Node.js & Express.js
 - Python — Django & FastAPI
 - RESTful API Design & Microservices
@@ -81,7 +81,7 @@ vector embeddings, and LLM inference, fully Dockerized for horizontal scaling.`,
 - JWT Authentication & Middleware
 - ETL Pipelines & Data Scraping
 
-## Frontend (When Needed) 💻
+## Frontend 💻
 - React.js
 - JavaScript (ES6+)
 - HTML5, CSS3 & Tailwind CSS

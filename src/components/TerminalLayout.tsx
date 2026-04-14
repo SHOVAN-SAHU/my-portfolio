@@ -1,36 +1,23 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Terminal, Cpu, Zap, Server, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
-import { commands } from '@/lib/content';
+import { Terminal, Cpu, Zap, Server, Github, Linkedin, Mail } from 'lucide-react';
 import Navigation from './Navigation';
 import BackgroundEffects from './BackgroundEffects';
+import TerminalInput from './TerminalInput';
 
 interface TerminalLayoutProps {
   children: React.ReactNode;
 }
 
 export default function TerminalLayout({ children }: TerminalLayoutProps) {
-  const [currentCommand, setCurrentCommand] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
   const [cpuUsage, setCpuUsage] = useState(15);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const commandTimer = setInterval(() => {
-      setCurrentCommand(commands[Math.floor(Math.random() * commands.length)]);
-      setIsTyping(true);
-      setTimeout(() => setIsTyping(false), 2000);
-    }, 4000);
-
     const cpuTimer = setInterval(() => {
       setCpuUsage(Math.floor(Math.random() * 30 + 10));
     }, 3000);
-
-    return () => {
-      clearInterval(commandTimer);
-      clearInterval(cpuTimer);
-    };
+    return () => clearInterval(cpuTimer);
   }, []);
 
   return (
@@ -72,16 +59,8 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
             </div>
           </div>
           
-          {/* Command Line */}
-          <div className="px-2 pb-2 sm:px-4 sm:pb-4">
-            <div className="flex items-center space-x-2 text-xs sm:text-sm overflow-hidden">
-              <span className="text-terminal-green flex-shrink-0">$</span>
-              <span className="text-gray-300 truncate">
-                {isTyping ? currentCommand : 'Ready for commands...'}
-              </span>
-              <span className="w-1 h-3 sm:w-2 sm:h-5 bg-terminal-green animate-terminal-blink flex-shrink-0" />
-            </div>
-          </div>
+          {/* Interactive Terminal Input */}
+          <TerminalInput />
         </div>
         
         {/* Main Content */}
@@ -105,7 +84,7 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
                 <div className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm text-gray-400 whitespace-nowrap">
                   <Server className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400 flex-shrink-0" />
                   <span className="hidden sm:inline">Node.js Enthusiast</span>
-                  <span className="sm:hidden">Node.js</span>
+                  <span className="sm:hidden">Node.js Enthusiast</span>
                 </div>
               </div>
               
@@ -142,15 +121,16 @@ export default function TerminalLayout({ children }: TerminalLayoutProps) {
         
         {/* Status Bar */}
         <div className="mt-2 sm:mt-4 bg-terminal-gray rounded-lg p-2 sm:p-3 border-2 border-terminal-green/30">
-          <div className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 text-xs sm:text-sm gap-2">
-            <div className="flex items-center space-x-2 sm:space-x-4 overflow-x-auto">
-              <span className="text-terminal-green whitespace-nowrap">● Online</span>
-              <span className="text-gray-400">|</span>
-              <span className="text-blue-400 whitespace-nowrap">Backend Dev Mode</span>
-              <span className="text-gray-400">|</span>
-              <span className="text-purple-400 whitespace-nowrap">Express.js ● Django ● FastApi</span>
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+            {/* Status tags — wrap on mobile, no scroll */}
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <span className="text-terminal-green">● Online</span>
+              <span className="text-gray-600 hidden xs:inline">|</span>
+              <span className="text-blue-400">Backend Dev Mode</span>
+              <span className="text-gray-600 hidden xs:inline">|</span>
+              <span className="text-purple-400">Express.js ● Django ● FastAPI</span>
             </div>
-            <div className="text-gray-400 text-right sm:text-left">
+            <div className="text-gray-500 text-xs">
               Last updated: {new Date().toLocaleDateString()}
             </div>
           </div>
