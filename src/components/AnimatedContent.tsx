@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Rocket, Laptop, Database, Wrench, BookOpen, Calendar, Mail, Phone, Link, Briefcase, GraduationCap, Award, Globe, Smartphone, Target } from 'lucide-react';
 
 interface AnimatedContentProps {
   content: string;
@@ -128,9 +128,54 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
     }
     
     if (line.startsWith('## ')) {
+      let icon: JSX.Element | null = null;
+      let text = line.substring(3);
+      let isPrefix = false;
+
+      const tagMap: Record<string, JSX.Element> = {
+        'rocket': <Rocket className="w-5 h-5 ml-2 inline-block" />,
+        'laptop': <Laptop className="w-5 h-5 ml-2 inline-block" />,
+        'database': <Database className="w-5 h-5 ml-2 inline-block" />,
+        'wrench': <Wrench className="w-5 h-5 ml-2 inline-block" />,
+        'books': <BookOpen className="w-5 h-5 ml-2 inline-block" />,
+      };
+
+      const prefixMap: Record<string, JSX.Element> = {
+        'email ': <Mail className="w-5 h-5 mr-2 inline-block" />,
+        'phone ': <Phone className="w-5 h-5 mr-2 inline-block" />,
+        'link ': <Link className="w-5 h-5 mr-2 inline-block" />,
+        'briefcase ': <Briefcase className="w-5 h-5 mr-2 inline-block" />,
+        'graduation ': <GraduationCap className="w-5 h-5 mr-2 inline-block" />,
+        'medal ': <Award className="w-5 h-5 mr-2 inline-block" />,
+        'globe ': <Globe className="w-5 h-5 mr-2 inline-block" />,
+        'mobile ': <Smartphone className="w-5 h-5 mr-2 inline-block" />,
+        'target ': <Target className="w-5 h-5 mr-2 inline-block" />,
+      };
+
+      for (const [tag, Icon] of Object.entries(tagMap)) {
+        if (text.endsWith(` ${tag}`)) {
+          icon = Icon;
+          text = text.substring(0, text.length - tag.length - 1);
+          break;
+        }
+      }
+
+      if (!icon) {
+        for (const [prefix, Icon] of Object.entries(prefixMap)) {
+          if (text.startsWith(prefix)) {
+            icon = Icon;
+            text = text.substring(prefix.length);
+            isPrefix = true;
+            break;
+          }
+        }
+      }
+
       return (
-        <div key={key} className="text-blue-400 text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 mt-4 sm:mt-6 animate-slide-up break-words">
-          {renderWithLinks(line.substring(3))}
+        <div key={key} className="text-blue-400 text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 mt-4 sm:mt-6 animate-slide-up break-words flex items-center">
+          {isPrefix && icon}
+          <span>{renderWithLinks(text)}</span>
+          {!isPrefix && icon}
         </div>
       );
     }
@@ -160,10 +205,11 @@ export default function AnimatedContent({ content, delay = 100 }: AnimatedConten
       );
     }
     
-    if (line.startsWith('📅 ') || line.startsWith('📧 ') || line.startsWith('🔗 ') || line.startsWith('📱 ') || line.startsWith('🌍 ') || line.startsWith('💼 ')) {
+    if (line.startsWith('date ')) {
       return (
-        <div key={key} className="text-cyan-400 mb-2 animate-fade-in text-sm sm:text-base break-words">
-          {renderWithLinks(line)}
+        <div key={key} className="text-cyan-400 mb-2 animate-fade-in text-sm sm:text-base break-words flex items-center">
+          <Calendar className="w-4 h-4 mr-2 inline-block" />
+          {renderWithLinks(line.substring(5))}
         </div>
       );
     }

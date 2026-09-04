@@ -152,8 +152,8 @@ export default function TerminalInput() {
       lower === 'view resume' ||
       lower === 'resume';
     if (isResume) {
-      set('nav', '→ Opening Shovan_Resume.pdf…');
-      setTimeout(() => window.open('/Shovan_Resume.pdf', '_blank'), 350);
+      set('nav', '→ Opening UpdatedResume.pdf…');
+      setTimeout(() => window.open('/UpdatedResume.pdf', '_blank'), 350);
       return;
     }
 

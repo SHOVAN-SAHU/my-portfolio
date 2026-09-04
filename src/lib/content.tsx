@@ -51,15 +51,9 @@ export const commands = [
 
 export const content = {
   about: `# About Me
-  [📄 View My Resume](Shovan_Resume.pdf)
+  [View My Resume](UpdatedResume.pdf)
 
-Hey there! I'm Shovan Sahu, a backend engineer passionate about building scalable systems,
-microservices, and data pipelines. I specialize in Node.js, Django, and FastAPI, with
-hands-on production experience designing distributed systems and high-performance APIs.
-
-While I'm comfortable working across the full stack, my true focus is the backend —
-crafting robust architectures, async processing pipelines, and RAG systems that solve
-real-world complexity at scale.
+Backend Developer with experience building fast, scalable APIs and reliable data pipelines. Skilled in Node.js, TypeScript, and Python, with a strong focus on system reliability, event-driven architecture, AI integrations, and cloud deployments. Passionate about solving complex problems and designing backend systems.
 
 ## Core Expertise
 - Microservices Architecture & REST API Design
@@ -73,78 +67,71 @@ Focusing on system design and scalable backend systems.`,
 
   skills: `# Technical Arsenal
 
-## Backend 🚀
-- Node.js & Express.js
-- Python — Django & FastAPI
+## Backend rocket
+- Node.js & Express.js, TypeScript, Python
+- Frameworks: Bun, FastAPI, Django
 - RESTful API Design & Microservices
-- Async Processing with Bull.js (Redis)
+- Async Processing with Bull.js (Redis) & NATS
 - JWT Authentication & Middleware
 - ETL Pipelines & Data Scraping
 
-## Frontend 💻
-- React.js
-- JavaScript (ES6+)
-- HTML5, CSS3 & Tailwind CSS
+## Frontend laptop
+- React.js, Redux, Tailwind CSS
+- JavaScript (ES6+), TypeScript
+- HTML5, CSS3
 - WebSockets & Socket.io
-- Optimistic UI Patterns
 
-## Databases & Search 🗄️
-- MongoDB (advanced indexing & aggregation)
+## Databases & Search database
+- MongoDB (advanced indexing & aggregation), PostgreSQL
 - Redis (caching & job queues)
 - Elasticsearch (full-text & faceted search)
 - Qdrant (Vector DB for RAG)
-- SQL & Cloudinary
 
-## Infrastructure & Tools 🛠️
+## Infrastructure & Tools wrench
 - Docker & Docker Compose
+- AWS (EC2, S3), Render, Vercel
 - Linux & Git / GitHub
-- CI/CD (Basic)
 - Postman & API Testing
-- VS Code & Terminal
 
-## Concepts 📚
+## Concepts books
 - Microservices & Distributed Systems
+- Event-Driven Design, Async Background Processing
 - RAG Pipelines & Vector Embeddings
-- Async Processing & WebSockets
-- Elasticsearch at scale`,
+- MCP (Model Context Protocol)`,
 
   experience: `# Professional Journey
 
-## Former Position
-**Backend Developer Intern** | Oggangs Pvt. Ltd. — Bangalore, India (Remote)
-📅 February 2025 – October 2025
+## Independent Project | InsightsHub
+**Self-directed** · Node.js, TypeScript, Python (FastAPI), Qdrant, Docker, ElasticLake, React.js
+date Jan 2026 – Present
 
-Working on production backend systems, microservices, and data pipelines using
-Node.js, Django, and FastAPI.
+- Architected a distributed RAG microservices platform in Node.js/TypeScript for a strongly-typed, maintainable backend.
+- Built a decoupled vector storage service with FastAPI and Qdrant, integrating Groq API inference and optimized text chunking to boost context retrieval accuracy to 88%.
+- Integrated Razorpay for subscription lifecycle management and S3-compatible object storage, with secure webhook verification.
+- Containerized the full application stack with Docker Compose, enabling independent service deployability and horizontal scaling.
 
-### Key Responsibilities:
-- Built and maintained production REST APIs with Node.js (Express.js) handling
-  authentication, business logic, and data validation at scale
-- Implemented async background job pipelines using Bull.js (Redis), offloading
-  data processing and scraping to reduce API latency
-- Integrated Elasticsearch for full-text search and faceted filtering, achieving
-  sub-second retrieval across millions of documents
-- Built a Django microservice as both a REST API and a scraping engine — extracting,
-  cleaning, and normalizing structured/unstructured data into enrichment pipelines
-- Built APIs for an internal calling agent microservice: handled outbound lead calls,
-  extracted structured data from conversations via LLM, applied hierarchy-matching
-  logic, and auto-generated product records
-- Designed MongoDB schemas with optimized indexing for high-write distributed workloads
-- Containerized services using Docker
+## Backend Developer Intern
+**Oggangs Pvt. Ltd.** | Bangalore, India (Remote)
+date Feb 2025 – Oct 2025
 
-### Technologies Used:
-- Node.js, Express.js, Django, FastAPI
-- MongoDB, Redis, Elasticsearch
-- Bull.js, Docker, JWT
+- Built and optimized core REST APIs with Node.js and Express.js, handling secure auth and business logic for 50,000+ monthly requests.
+- Designed asynchronous background job pipelines with Bull.js and Redis, offloading heavy scraping workloads and cutting core API latency by 42%.
+- Used NATS pub/sub to decouple internal services and stream event data between the API layer and background workers.
+- Built a Python microservice for an ETL pipeline that cleaned and processed raw text data with a 95% success rate.
+- Configured Elasticsearch for full-text search and faceted filtering, achieving sub-100ms retrieval across 2M+ documents.
+- Built AI-driven APIs to extract structured data from conversations using LLMs, cutting manual data entry by 60%.
 
-### Achievements:
-- Achieved sub-second search across millions of documents via Elasticsearch integration
-- Reduced API latency significantly by offloading workflows to async Bull.js pipelines
-- Built a fully containerized, independently deployable microservices architecture`,
+## Freelance Developer
+**Remote**
+date Mar 2024 – Dec 2024
+
+- Built and shipped full-stack apps for multiple independent clients using Node.js, Express.js, React.js and MongoDB.
+- Designed a real-time messaging feature with Socket.io, tuned for low-latency delivery under concurrent connection load.
+- Handled end-to-end client communication, requirements gathering, and deployment for each engagement.`,
 
   projects: `# Featured Projects
 
-## 🎯 InsightsHub (RAG Platform)
+## target InsightsHub (RAG Platform)
 **Tech Stack:** Express.js, FastAPI, React.js, Qdrant, Groq, Docker, Elasticlake
 **Live:** https://insightshub.in | **Year:** 2026
 
@@ -156,7 +143,7 @@ Node.js, Django, and FastAPI.
 - Entire stack is Dockerized with services designed for independent deployability
   and horizontal scaling
 
-## 🔗 SocialLoop (Social Media Platform)
+## link SocialLoop (Social Media Platform)
 **Tech Stack:** Express.js, React.js, MongoDB, Cloudinary, Socket.io
 **Live:** https://socialloop.onrender.com
 **GitHub:** https://github.com/SHOVAN-SAHU/SocialLoop-v-1.0.0 | **Year:** 2025
@@ -171,31 +158,34 @@ Node.js, Django, and FastAPI.
 I'm always open to discussing new opportunities, especially backend and distributed
 systems roles. Feel free to reach out to collaborate or chat about tech!
 
-## 📧 Email
+## email Email
 shovansahu000@gmail.com
 
-## 🔗 Social Links
+## phone Phone
++91 9832432155
+
+## link Social Links
 - **GitHub:** https://github.com/SHOVAN-SAHU
 - **LinkedIn:** https://www.linkedin.com/in/shovan-sahu
-- **Resume:** [📄 View My Resume](Shovan_Resume.pdf)
+- **Resume:** [View My Resume](UpdatedResume.pdf)
 
-## 💼 Open to:
+## briefcase Open to:
 - Backend / Backend-heavy Full-stack roles
 - Distributed Systems & Microservices projects
 - Freelance backend projects
 - Technical collaborations
 - Mentorship discussions
 
-## 🎓 Education
+## graduation Education
 B.Tech in Computer Science & Engineering
 Swami Vivekananda University, Kolkata — 2025
 
-## 🏅 Certifications
+## medal Certifications
 Backend Developer Internship Certificate — Oggangs Pvt. Ltd., 2025
 
-## 🌍 Location
+## globe Location
 Based in Kolkata, West Bengal, India — open to remote opportunities worldwide.
 
-## 📱 Response Time
+## mobile Response Time
 I typically respond within 24 hours during weekdays.`
 };
