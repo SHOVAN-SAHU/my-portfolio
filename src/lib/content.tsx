@@ -51,7 +51,7 @@ export const commands = [
 
 export const content = {
   about: `# About Me
-  [View My Resume](UpdatedResume.pdf)
+  [View My Resume](Shovan_Sahu_Resume.pdf)
 
 Backend Developer with experience building fast, scalable APIs and reliable data pipelines. Skilled in Node.js, TypeScript, and Python, with a strong focus on system reliability, event-driven architecture, AI integrations, and cloud deployments. Passionate about solving complex problems and designing backend systems.
 
@@ -101,17 +101,20 @@ Focusing on system design and scalable backend systems.`,
 
   experience: `# Professional Journey
 
-## Independent Project | InsightsHub
-**Self-directed** · Node.js, TypeScript, Python (FastAPI), Qdrant, Docker, ElasticLake, React.js
-date Jan 2026 – Present
+## Backend Developer Intern
+**HangoutX Media Pvt. Ltd. | Noida, India (Remote)**
+date Sep 2026 – Present
 
-- Architected a distributed RAG microservices platform in Node.js/TypeScript for a strongly-typed, maintainable backend.
-- Built a decoupled vector storage service with FastAPI and Qdrant, integrating Groq API inference and optimized text chunking to boost context retrieval accuracy to 88%.
-- Integrated Razorpay for subscription lifecycle management and S3-compatible object storage, with secure webhook verification.
-- Containerized the full application stack with Docker Compose, enabling independent service deployability and horizontal scaling.
+- Cut socket and API latency from ~2s to ~300ms (~85% faster) through Redis caching, query optimization, and
+streamlined request handling in Node.js.
+- Implemented Redis caching with a 1-hour TTL, cutting repeated database calls to 0 within the cache window
+and significantly reducing database load.
+- Built asynchronous task pipelines with BullMQ and Redis to offload heavy-lifting tasks, keeping APIs and
+sockets responsive under load.
+- Improved AI response quality by refining system prompts and context handling for more relevant answers.
 
 ## Backend Developer Intern
-**Oggangs Pvt. Ltd.** | Bangalore, India (Remote)
+**Oggangs Pvt. Ltd. | Bangalore, India (Remote)**
 date Feb 2025 – Oct 2025
 
 - Built and optimized core REST APIs with Node.js and Express.js, handling secure auth and business logic for 50,000+ monthly requests.
@@ -167,7 +170,7 @@ shovansahu000@gmail.com
 ## link Social Links
 - **GitHub:** https://github.com/SHOVAN-SAHU
 - **LinkedIn:** https://www.linkedin.com/in/shovan-sahu
-- **Resume:** [View My Resume](UpdatedResume.pdf)
+- **Resume:** [View My Resume](Shovan_Sahu_Resume.pdf)
 
 ## briefcase Open to:
 - Backend / Backend-heavy Full-stack roles
